@@ -16,20 +16,13 @@ class LevelButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final buttonSize = screenWidth * 0.16;
-    final selectedScale = 1.1;
-    final unselectedScale = 1.0;
+    final buttonSize = screenWidth * 0.13;
 
     return AnimatedContainer(
       width: buttonSize,
       height: buttonSize,
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeInOut,
-      transform: Matrix4.diagonal3Values(
-        isSelected ? selectedScale : unselectedScale,
-        isSelected ? selectedScale : unselectedScale,
-        1.0,
-      ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
         boxShadow: isSelected
@@ -49,7 +42,7 @@ class LevelButton extends StatelessWidget {
         child: InkWell(
           onTap: onTap,
           borderRadius: BorderRadius.circular(10),
-          child: SvgPicture.asset(
+          child: Image.asset(
             assetName,
             fit: BoxFit.contain,
           ),

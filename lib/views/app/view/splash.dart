@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:rat_match/views/consts/app_text_style/settings_style.dart';
 
-import '../../../data/repository/onboarding_repo.dart';
 import '../../../util/app_routes.dart';
 
 class SplashScreen extends StatefulWidget {
-  final OnboardingRepository onboardingRepository;
   final String homeRoute;
-  final String onboardingRoute;
 
   const SplashScreen({
     Key? key,
     required this.homeRoute,
-    required this.onboardingRepository,
-    required this.onboardingRoute,
   }) : super(key: key);
 
   @override
@@ -30,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void _simulateProgress() {
-    Future.delayed(const Duration(milliseconds: 100), () {
+    Future.delayed(const Duration(milliseconds: 30), () {
       if (progress < 1.0) {
         setState(() {
           progress += 0.01;
@@ -46,13 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void _navigateToNextScreen() async {
-    bool isFirstLaunch = await OnboardingRepository().checkFirstTime();
-    if (isFirstLaunch) {
-      await OnboardingRepository().setFirstTime();
-      Navigator.of(context).pushReplacementNamed(AppRoutes.onboarding);
-    } else {
-      Navigator.of(context).pushReplacementNamed(AppRoutes.home);
-    }
+    Navigator.of(context).pushReplacementNamed(AppRoutes.home);
   }
 
   @override
@@ -68,25 +56,12 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
             ),
           ),
-          Column(
-            children: [
-              Spacer(),
-              if (progress >= 0.5)
-                const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text(
-                    'Mouse Fortune',
-                    style: SettingsTextStyle.heavyStyle,
-                  ),
-                ),
-              Spacer(),
-              LinearProgressIndicator(
-                value: progress,
-                backgroundColor: Colors.grey[800],
-                valueColor: const AlwaysStoppedAnimation<Color>(Colors.grey),
-              ),
-              SizedBox()
-            ],
+          Center(
+            child: CircularProgressIndicator(
+              value: progress,
+              backgroundColor: Colors.grey[800],
+              valueColor: const AlwaysStoppedAnimation<Color>(Colors.grey),
+            ),
           ),
         ],
       ),

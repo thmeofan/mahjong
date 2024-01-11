@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class SettingsTextStyle {
   static const TextStyle heavyTextStyle = TextStyle(
-    fontFamily: 'Inter',
+    fontFamily: 'Bebas Neue',
     fontSize: 16.0,
     fontWeight: FontWeight.w900,
     height: 24.0 / 16.0,
@@ -10,7 +10,7 @@ class SettingsTextStyle {
     color: Colors.white,
   );
   static const TextStyle heavyStyle = TextStyle(
-    fontFamily: 'Inter',
+    fontFamily: 'Bebas Neue',
     fontSize: 52.0,
     fontWeight: FontWeight.w900,
     height: 52.0 / 52.0,

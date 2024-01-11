@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../views/app/view/splash.dart';
+import '../views/levels/view/first_level_screen.dart';
+import '../views/levels/view/second_level_screen.dart';
 import '../views/menu/view/menu_screen.dart';
 import '../views/progress/view/progress_screen.dart';
 import '../views/result/view/result_screen.dart';
@@ -27,14 +30,16 @@ abstract class AppRoutes {
         child = const SettingsScreen();
       case result:
         child = const ResultScreen();
-      // case lvl1:
-      //   child = const FirstLevelScreen();
-      // case lvl2:
-      //   child = const SecondLevelScreen();
+      case lvl1:
+        child = const FirstLevelScreen();
+      case lvl2:
+        child = const SecondLevelScreen();
       case progress:
         child = const ProgressScreen();
       default:
-        child = const MenuScreen();
+        child = SplashScreen(
+          homeRoute: AppRoutes.home,
+        );
     }
     return MaterialPageRoute(builder: (_) => child);
   }

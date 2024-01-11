@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../util/app_routes.dart';
 import '../../app/widget/action_button.dart';
-import '../../app/widget/navigation_button.dart';
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen({super.key});
@@ -27,40 +26,14 @@ class _MenuScreenState extends State {
           ),
         )),
         child: Stack(children: [
-          Center(
-            child: Column(
-              children: [
-                ActionButton(
-                  buttonWidth: size.width * 0.2,
-                  buttonHeight: size.height * 0.3,
-                  assetName: 'assets/images/play.png',
-                  onTap: () {
-                    Navigator.of(context).pushNamed(
-                      AppRoutes.progress,
-                    );
-                  },
-                ),
-                ActionButton(
-                  buttonWidth: size.width * 0.2,
-                  buttonHeight: size.height * 0.3,
-                  assetName: 'assets/images/settings.png',
-                  onTap: () {
-                    Navigator.of(context).pushNamed(
-                      AppRoutes.progress,
-                    );
-                  },
-                ),
-              ],
-            ),
-          ),
           Positioned(
-            bottom: size.height * 0.1,
+            top: size.height * 0.1,
             left: size.width * 0.025,
             child: Row(
               children: [
                 ActionButton(
                   buttonWidth: size.width * 0.2,
-                  buttonHeight: size.height * 0.3,
+                  buttonHeight: size.height * 0.18,
                   assetName: 'assets/images/score.png',
                   onTap: () {
                     Navigator.of(context).pushNamed(
@@ -72,14 +45,51 @@ class _MenuScreenState extends State {
             ),
           ),
           Positioned(
-            bottom: size.height * 0.035,
-            left: -size.width * 0.025,
-            child: Image.asset('assets/images/chest.png'),
+            bottom: 0,
+            left: -size.width * 0.15,
+            child: Image.asset(
+              'assets/images/chest.png',
+              width: size.width * 0.6,
+              height: size.height * 0.5,
+            ),
           ),
           Positioned(
-            bottom: size.height * 0.035,
-            right: -size.width * 0.025,
-            child: Image.asset('assets/images/bison.png'),
+            bottom: 0,
+            right: -size.width * 0.27,
+            child: Image.asset(
+              'assets/images/bison_half.png',
+              width: size.width * 0.9,
+              height: size.height * 0.9,
+            ),
+          ),
+          Center(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: size.height * 0.25,
+                ),
+                ActionButton(
+                  buttonWidth: size.width * 0.4,
+                  buttonHeight: size.height * 0.3,
+                  assetName: 'assets/images/play.png',
+                  onTap: () {
+                    Navigator.of(context).pushNamed(
+                      AppRoutes.progress,
+                    );
+                  },
+                ),
+                ActionButton(
+                  buttonWidth: size.width * 0.3,
+                  buttonHeight: size.height * 0.3,
+                  assetName: 'assets/images/settings.png',
+                  onTap: () {
+                    Navigator.of(context).pushNamed(
+                      AppRoutes.settingsScreen,
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
         ]),
       ),
