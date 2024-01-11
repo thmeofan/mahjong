@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../util/app_routes.dart';
 import '../../app/view/my_in_app_web_view.dart';
+import '../../app/widget/navigation_button.dart';
 import '../../consts/app_colors.dart';
 import '../../consts/app_text_style/settings_style.dart';
 
@@ -24,7 +25,25 @@ class SettingsScreen extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: size.height * 0.1,
+            bottom: 0,
+            right: 0,
+            child: Image.asset(
+              'assets/images/bison_half.png',
+              height: size.height * 0.8,
+              fit: BoxFit.contain,
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: -size.width * 0.09,
+            child: Image.asset(
+              'assets/images/buddha.png',
+              height: size.height * 0.7,
+              fit: BoxFit.contain,
+            ),
+          ),
+          Positioned(
+            top: size.width * 0.05,
             left: size.width * 0.025,
             child: NavigationButton(
               assetName: 'assets/images/home.png',
@@ -33,7 +52,7 @@ class SettingsScreen extends StatelessWidget {
                   AppRoutes.home,
                 );
               },
-              buttonWidth: size.width * 0.08,
+              buttonWidth: size.width * 0.07,
             ),
           ),
           Center(
@@ -41,22 +60,13 @@ class SettingsScreen extends StatelessWidget {
               alignment: Alignment.center,
               children: [
                 Container(
-                  height: size.height * 0.8,
-                  width: size.width * 0.6,
+                  height: size.height * 0.9,
+                  width: size.width * 0.7,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('assets/images/banner.png'),
+                      image: AssetImage('assets/images/papyrus.png'),
                       fit: BoxFit.contain,
                     ),
-                  ),
-                ),
-                Positioned(
-                  bottom: -(size.height * 0.1),
-                  right: -(size.width * 0.08),
-                  child: Image.asset(
-                    'assets/images/chipmunk.png',
-                    height: size.height * 0.9,
-                    fit: BoxFit.contain,
                   ),
                 ),
                 Column(
@@ -68,10 +78,7 @@ class SettingsScreen extends StatelessWidget {
                         return const LinearGradient(
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
-                          colors: <Color>[
-                            Colors.white,
-                            Color(0xFFEC9851),
-                          ],
+                          colors: <Color>[Color(0xFFEC9851), Colors.indigo],
                         ).createShader(bounds);
                       },
                       child: TextButton(
@@ -96,10 +103,7 @@ class SettingsScreen extends StatelessWidget {
                         return const LinearGradient(
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
-                          colors: <Color>[
-                            Colors.white,
-                            Color(0xFFEC9851),
-                          ],
+                          colors: <Color>[Color(0xFFEC9851), Colors.indigo],
                         ).createShader(bounds);
                       },
                       child: TextButton(
@@ -124,11 +128,7 @@ class SettingsScreen extends StatelessWidget {
                         return const LinearGradient(
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
-                          colors: <Color>[
-                            Colors.white,
-                            AppColors.brownColor,
-                            //   Color(0xFFEC9851),
-                          ],
+                          colors: <Color>[Color(0xFFEC9851), Colors.indigo],
                         ).createShader(bounds);
                       },
                       child: TextButton(

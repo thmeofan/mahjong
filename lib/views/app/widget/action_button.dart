@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
 class ActionButton extends StatelessWidget {
-  const ActionButton(
-      {Key? key,
-      required this.onTap,
-      required this.assetName,
-      required this.buttonWidth,
-      required this.buttonHeight})
-      : super(key: key);
-  final Function() onTap;
+  const ActionButton({
+    Key? key,
+    required this.onTap,
+    required this.assetName,
+    required this.buttonWidth,
+    required this.buttonHeight,
+  }) : super(key: key);
+
+  final VoidCallback onTap;
   final String assetName;
   final double buttonWidth;
   final double buttonHeight;
@@ -18,7 +19,10 @@ class ActionButton extends StatelessWidget {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        onTap: onTap,
+        onTap: () {
+          debugPrint('ActionButton tapped: $assetName');
+          onTap();
+        },
         child: Container(
           width: buttonWidth,
           height: buttonHeight,
