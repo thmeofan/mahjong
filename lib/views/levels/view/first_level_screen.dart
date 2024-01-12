@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:mahjong/views/levels/widget/timer_widget.dart';
 
 import '../../../data/repository/score_repo.dart';
 import '../../../util/app_routes.dart';
 import '../../app/widget/navigation_button.dart';
+
+import '../../app/widget/score_widget.dart';
 import '../widget/mahjong_card_widget.dart';
 
 class FirstLevelScreen extends StatefulWidget {
@@ -20,8 +23,8 @@ class _FirstLevelScreenState extends State<FirstLevelScreen> {
     'assets/images/cards/mahjong--4.png',
     'assets/images/cards/mahjong--5.png',
     'assets/images/cards/mahjong--6.png',
-    'assets/images/cards/mahjong--7.png',
-    'assets/images/cards/mahjong--8.png',
+    // 'assets/images/cards/mahjong--7.png',
+    // 'assets/images/cards/mahjong--8.png',
   ];
 
   List<String> _gameIcons = [];
@@ -66,6 +69,42 @@ class _FirstLevelScreenState extends State<FirstLevelScreen> {
         ),
       )),
       child: Stack(children: [
+        Positioned(
+          top: 0,
+          left: -size.width * 0.18,
+          child: Image.asset(
+            'assets/images/column.png',
+            width: size.width * 0.4,
+            height: size.height * 1,
+          ),
+        ),
+        Positioned(
+          top: 0,
+          right: -size.width * 0.2,
+          child: Image.asset(
+            'assets/images/column.png',
+            width: size.width * 0.4,
+            height: size.height * 1,
+          ),
+        ),
+        Positioned(
+          bottom: -size.width * 0.05,
+          left: -size.width * 0.22,
+          child: Image.asset(
+            'assets/images/bison.png',
+            width: size.width * 0.4,
+            height: size.height * 0.7,
+          ),
+        ),
+        Positioned(
+          bottom: -size.width * 0.045,
+          right: -size.width * 0.1,
+          child: Image.asset(
+            'assets/images/buddha.png',
+            width: size.width * 0.4,
+            height: size.height * 0.7,
+          ),
+        ),
         Align(
           alignment: Alignment.center,
           child: Center(
@@ -77,37 +116,45 @@ class _FirstLevelScreenState extends State<FirstLevelScreen> {
                 right: size.width * 0.05,
               ),
               child: Stack(children: [
-                _buildCard(0, size.height * 0.1, size.width * 0.1),
-                _buildCard(1, size.height * 0.2, size.width * 0.35),
-                _buildCard(2, size.height * 0.15, size.width * 0.25),
-                _buildCard(3, size.height * 0.17, size.width * 0.1),
-                _buildCard(4, size.height * 0.08, size.width * 0.5),
-                _buildCard(5, size.height * 0.21, size.width * 0.36),
-                _buildCard(6, size.height * 0.29, size.width * 0.28),
-                _buildCard(7, size.height * 0.51, size.width * 0.73),
-                _buildCard(8, size.height * 0.21, size.width * 0.3),
-                _buildCard(9, size.height * 0.23, size.width * 0.64),
-                _buildCard(10, size.height * 0.45, size.width * 0.14),
-                _buildCard(11, size.height * 0.29, size.width * 0.05),
-                _buildCard(12, size.height * 0.1, size.width * 0.5),
-                _buildCard(13, size.height * 0.05, size.width * 0.32),
-                _buildCard(14, size.height * 0.52, size.width * 0.4),
-                _buildCard(15, size.height * 0.35, size.width * 0.5),
+                _buildCard(0, size.height * 0.1, size.width * 0.08),
+                _buildCard(1, size.height * 0.55, size.width * 0.08),
+                _buildCard(2, size.height * 0.32, size.width * 0.16),
+                _buildCard(3, size.height * 0.1, size.width * 0.24),
+                _buildCard(4, size.height * 0.55, size.width * 0.24),
+                _buildCard(5, size.height * 0.32, size.width * 0.32),
+                _buildCard(6, size.height * 0.1, size.width * 0.4),
+                _buildCard(7, size.height * 0.55, size.width * 0.4),
+                _buildCard(8, size.height * 0.32, size.width * 0.48),
+                _buildCard(9, size.height * 0.1, size.width * 0.56),
+                _buildCard(10, size.height * 0.55, size.width * 0.56),
+                _buildCard(11, size.height * 0.32, size.width * 0.64),
               ]),
             ),
           ),
         ),
         Positioned(
-          top: size.height * 0.1,
+          top: -size.height * 0.02,
           left: size.width * 0.05,
-          child: NavigationButton(
-            assetName: 'assets/images/home.png',
-            onTap: () {
-              Navigator.of(context).pushNamed(
-                AppRoutes.home,
-              );
-            },
-            buttonWidth: size.width * 0.08,
+          child: Row(
+            children: [
+              NavigationButton(
+                assetName: 'assets/images/home.png',
+                onTap: () {
+                  Navigator.of(context).pushNamed(
+                    AppRoutes.home,
+                  );
+                },
+                buttonWidth: size.width * 0.075,
+              ),
+              SizedBox(
+                width: size.width * 0.08,
+              ),
+              TimerWidget(),
+              SizedBox(
+                width: size.width * 0.05,
+              ),
+              ScoreWidget(),
+            ],
           ),
         ),
       ]),
@@ -160,13 +207,22 @@ class _FirstLevelScreenState extends State<FirstLevelScreen> {
   }
 
   Widget _buildCard(int index, double topOffset, double leftOffset) {
+    if (_cardMatched[index]) {
+      return Container();
+    }
+
     return Positioned(
       top: topOffset,
       left: leftOffset,
-      child: MahjongCard(
-        cardName: _gameIcons[index],
+      child: GestureDetector(
         onTap: () => _onCardClick(index),
-        isSelected: _cardSelected[index],
+        child: MahjongCard(
+          cardName: _gameIcons[index],
+          isSelected: _cardSelected[index],
+          onTap: () {
+            _onCardClick(index);
+          },
+        ),
       ),
     );
   }

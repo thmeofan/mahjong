@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mahjong/views/app/widget/score_widget.dart';
 
 import '../../../util/app_routes.dart';
 import '../../app/widget/action_button.dart';
@@ -27,20 +28,11 @@ class _MenuScreenState extends State {
         )),
         child: Stack(children: [
           Positioned(
-            top: size.height * 0.1,
+            top: size.height * 0.05,
             left: size.width * 0.025,
             child: Row(
               children: [
-                ActionButton(
-                  buttonWidth: size.width * 0.2,
-                  buttonHeight: size.height * 0.18,
-                  assetName: 'assets/images/score.png',
-                  onTap: () {
-                    Navigator.of(context).pushNamed(
-                      AppRoutes.progress,
-                    );
-                  },
-                ),
+                ScoreWidget(),
               ],
             ),
           ),
@@ -66,10 +58,10 @@ class _MenuScreenState extends State {
             child: Column(
               children: [
                 SizedBox(
-                  height: size.height * 0.25,
+                  height: size.height * 0.28,
                 ),
                 ActionButton(
-                  buttonWidth: size.width * 0.4,
+                  buttonWidth: size.width * 0.45,
                   buttonHeight: size.height * 0.3,
                   assetName: 'assets/images/play.png',
                   onTap: () {
@@ -79,7 +71,7 @@ class _MenuScreenState extends State {
                   },
                 ),
                 ActionButton(
-                  buttonWidth: size.width * 0.3,
+                  buttonWidth: size.width * 0.35,
                   buttonHeight: size.height * 0.3,
                   assetName: 'assets/images/settings.png',
                   onTap: () {
