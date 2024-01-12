@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mahjong/views/app/widget/action_button.dart';
+import 'package:mahjong/views/consts/app_text_style/menu_style.dart';
 
 import '../../../data/repository/score_repo.dart';
 import '../../../util/app_routes.dart';
@@ -59,11 +60,21 @@ class ResultScreen extends StatelessWidget {
                     ),
                     child: Column(
                       children: [
-                        Text('LEVEL DONE'),
-                        Text('Congratulations on passing the level'),
-                        Text('SCORE: $score'),
+                        Text(
+                          'LEVEL DONE',
+                          style: ResultTextStyle.resultTitle,
+                        ),
                         SizedBox(
-                          height: size.height * 0.09,
+                          height: size.height * 0.008,
+                        ),
+                        Text('Congratulations on \npassing the level',
+                            style: ResultTextStyle.resultCongrats),
+                        SizedBox(
+                          height: size.height * 0.008,
+                        ),
+                        Text(
+                          'SCORE: $score',
+                          style: ResultTextStyle.resultScore,
                         ),
                         Padding(
                           padding: EdgeInsets.symmetric(
@@ -82,13 +93,21 @@ class ResultScreen extends StatelessWidget {
                                 buttonHeight: size.height * 0.3,
                               ),
                               ActionButton(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.of(context).pushNamed(
+                                    AppRoutes.progress,
+                                  );
+                                },
                                 assetName: 'assets/images/next.png',
                                 buttonWidth: size.width * 0.2,
                                 buttonHeight: size.height * 0.3,
                               ),
                               ActionButton(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.of(context).pushNamed(
+                                    AppRoutes.lvl1,
+                                  );
+                                },
                                 assetName: 'assets/images/replay.png',
                                 buttonWidth: size.width * 0.05,
                                 buttonHeight: size.height * 0.3,

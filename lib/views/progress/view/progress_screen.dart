@@ -19,51 +19,16 @@ class _ProgressScreenState extends State<ProgressScreen> {
   void _onStartLevel() {
     switch (selectedLevelIndex) {
       case 0:
-        if (life >= 1) {
-          Navigator.of(context).pushNamed(AppRoutes.lvl1);
-          score -= 50;
-          life -= 1;
-        } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text(
-                'Sorry, you\'re out of lives',
-                style: TextStyle(color: Colors.white),
-              ),
-              backgroundColor: Color(0xFFEAAD82),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-              ),
-              margin: EdgeInsets.symmetric(horizontal: 150),
-              behavior: SnackBarBehavior.floating,
-              duration: Duration(seconds: 2),
-            ),
-          );
-        }
+        Navigator.of(context).pushNamed(AppRoutes.lvl1);
+        score -= 50;
+        life -= 1;
         break;
 
       case 1:
-        if (life >= 1) {
-          Navigator.of(context).pushNamed(AppRoutes.result);
-          score -= 50;
-          life -= 1;
-        } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text(
-                'Sorry, you\'re out of lives',
-                style: TextStyle(color: Colors.white),
-              ),
-              backgroundColor: Color(0xFFEAAD82),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-              ),
-              margin: EdgeInsets.symmetric(horizontal: 200),
-              behavior: SnackBarBehavior.floating,
-              duration: Duration(seconds: 2),
-            ),
-          );
-        }
+        Navigator.of(context).pushNamed(AppRoutes.lvl2);
+        score -= 50;
+        life -= 1;
+
         break;
       case 2:
         ScaffoldMessenger.of(context).showSnackBar(
@@ -72,50 +37,17 @@ class _ProgressScreenState extends State<ProgressScreen> {
               'This level isn\'t unlocked yet',
               style: TextStyle(color: Colors.white),
             ),
-            backgroundColor: Color(0xFFEAAD82),
+            backgroundColor: Colors.deepOrange,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(10)),
+              borderRadius: BorderRadius.all(Radius.circular(40)),
             ),
-            margin: EdgeInsets.symmetric(horizontal: 200),
+            margin: EdgeInsets.symmetric(horizontal: 250),
             behavior: SnackBarBehavior.floating,
             duration: Duration(seconds: 2),
           ),
         );
         break;
-      case 3:
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text(
-              'This level isn\'t unlocked yet',
-              style: TextStyle(color: Colors.white),
-            ),
-            backgroundColor: Color(0xFFEAAD82),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(10)),
-            ),
-            margin: EdgeInsets.symmetric(horizontal: 200),
-            behavior: SnackBarBehavior.floating,
-            duration: Duration(seconds: 2),
-          ),
-        );
-        break;
-      case 4:
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text(
-              'This level isn\'t unlocked yet',
-              style: TextStyle(color: Colors.white),
-            ),
-            backgroundColor: Color(0xFFEAAD82),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(10)),
-            ),
-            margin: EdgeInsets.symmetric(horizontal: 200),
-            behavior: SnackBarBehavior.floating,
-            duration: Duration(seconds: 2),
-          ),
-        );
-        break;
+
       default:
         Navigator.of(context).pushNamed(AppRoutes.lvl1);
     }
@@ -164,50 +96,50 @@ class _ProgressScreenState extends State<ProgressScreen> {
                     ),
                     LevelButton(
                       assetName: 'assets/images/levels/lvl3.png',
-                      isSelected: selectedLevelIndex == 3,
+                      isSelected: selectedLevelIndex == 2,
                       onTap: () {
                         setState(() {
-                          selectedLevelIndex = 3;
+                          selectedLevelIndex = 2;
                         });
                         _onStartLevel();
                       },
                     ),
                     LevelButton(
                       assetName: 'assets/images/levels/lvl4.png',
-                      isSelected: selectedLevelIndex == 4,
+                      isSelected: selectedLevelIndex == 2,
                       onTap: () {
                         setState(() {
-                          selectedLevelIndex = 4;
+                          selectedLevelIndex = 2;
                         });
                         _onStartLevel();
                       },
                     ),
                     LevelButton(
                       assetName: 'assets/images/levels/lvl5.png',
-                      isSelected: selectedLevelIndex == 5,
+                      isSelected: selectedLevelIndex == 2,
                       onTap: () {
                         setState(() {
-                          selectedLevelIndex = 5;
+                          selectedLevelIndex = 2;
                         });
                         _onStartLevel();
                       },
                     ),
                     LevelButton(
                       assetName: 'assets/images/levels/lvl6.png',
-                      isSelected: selectedLevelIndex == 6,
+                      isSelected: selectedLevelIndex == 2,
                       onTap: () {
                         setState(() {
-                          selectedLevelIndex = 6;
+                          selectedLevelIndex = 2;
                         });
                         _onStartLevel();
                       },
                     ),
                     LevelButton(
                       assetName: 'assets/images/levels/lvl7.png',
-                      isSelected: selectedLevelIndex == 7,
+                      isSelected: selectedLevelIndex == 2,
                       onTap: () {
                         setState(() {
-                          selectedLevelIndex = 7;
+                          selectedLevelIndex = 2;
                         });
                         _onStartLevel();
                       },
@@ -221,70 +153,70 @@ class _ProgressScreenState extends State<ProgressScreen> {
                   children: [
                     LevelButton(
                       assetName: 'assets/images/levels/lvl8.png',
-                      isSelected: selectedLevelIndex == 8,
+                      isSelected: selectedLevelIndex == 2,
                       onTap: () {
                         setState(() {
-                          selectedLevelIndex = 8;
+                          selectedLevelIndex = 2;
                         });
                         _onStartLevel();
                       },
                     ),
                     LevelButton(
                       assetName: 'assets/images/levels/lvl9.png',
-                      isSelected: selectedLevelIndex == 9,
+                      isSelected: selectedLevelIndex == 2,
                       onTap: () {
                         setState(() {
-                          selectedLevelIndex = 9;
+                          selectedLevelIndex = 2;
                         });
                         _onStartLevel();
                       },
                     ),
                     LevelButton(
                       assetName: 'assets/images/levels/lvl10.png',
-                      isSelected: selectedLevelIndex == 10,
+                      isSelected: selectedLevelIndex == 2,
                       onTap: () {
                         setState(() {
-                          selectedLevelIndex = 10;
+                          selectedLevelIndex = 2;
                         });
                         _onStartLevel();
                       },
                     ),
                     LevelButton(
                       assetName: 'assets/images/levels/lvl11.png',
-                      isSelected: selectedLevelIndex == 11,
+                      isSelected: selectedLevelIndex == 2,
                       onTap: () {
                         setState(() {
-                          selectedLevelIndex = 11;
+                          selectedLevelIndex = 2;
                         });
                         _onStartLevel();
                       },
                     ),
                     LevelButton(
                       assetName: 'assets/images/levels/lvl12.png',
-                      isSelected: selectedLevelIndex == 12,
+                      isSelected: selectedLevelIndex == 2,
                       onTap: () {
                         setState(() {
-                          selectedLevelIndex = 12;
+                          selectedLevelIndex = 2;
                         });
                         _onStartLevel();
                       },
                     ),
                     LevelButton(
                       assetName: 'assets/images/levels/lvl13.png',
-                      isSelected: selectedLevelIndex == 13,
+                      isSelected: selectedLevelIndex == 2,
                       onTap: () {
                         setState(() {
-                          selectedLevelIndex = 13;
+                          selectedLevelIndex = 2;
                         });
                         _onStartLevel();
                       },
                     ),
                     LevelButton(
                       assetName: 'assets/images/levels/lvl14.png',
-                      isSelected: selectedLevelIndex == 14,
+                      isSelected: selectedLevelIndex == 2,
                       onTap: () {
                         setState(() {
-                          selectedLevelIndex = 14;
+                          selectedLevelIndex = 2;
                         });
                         _onStartLevel();
                       },
