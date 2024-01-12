@@ -22,9 +22,9 @@ class _TimerWidgetState extends State<TimerWidget> {
 
   void _startTimer() {
     _timer?.cancel(); // Cancel any existing timers
-    _timer = Timer.periodic(Duration(milliseconds: 100), (timer) {
+    _timer = Timer.periodic(const Duration(milliseconds: 100), (timer) {
       setState(() {
-        final newDuration = _duration + Duration(milliseconds: 100);
+        final newDuration = _duration + const Duration(milliseconds: 100);
         if (newDuration >= maxDuration) {
           _duration = maxDuration;
           timer.cancel();
@@ -63,13 +63,13 @@ class _TimerWidgetState extends State<TimerWidget> {
           child: Align(
             alignment: Alignment.centerLeft,
             child: AnimatedContainer(
-              duration: Duration(milliseconds: 300),
+              duration: const Duration(milliseconds: 300),
               height: size.height * 0.1,
               width: size.width *
                   0.25 *
                   (_duration.inSeconds / maxDuration.inSeconds),
               decoration: BoxDecoration(
-                gradient: LinearGradient(
+                gradient: const LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
@@ -80,15 +80,6 @@ class _TimerWidgetState extends State<TimerWidget> {
                 borderRadius: BorderRadius.circular(40),
               ),
               alignment: Alignment.centerLeft,
-              // child: FractionallySizedBox(
-              //   widthFactor: _duration.inSeconds / maxDuration.inSeconds,
-              //   child: Container(
-              //     decoration: BoxDecoration(
-              //       color: Colors.orange,
-              //       borderRadius: BorderRadius.circular(40),
-              //     ),
-              //   ),
-              // ),
             ),
           ),
         ),

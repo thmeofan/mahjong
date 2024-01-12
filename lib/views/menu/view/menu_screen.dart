@@ -30,15 +30,15 @@ class _MenuScreenState extends State {
           Positioned(
             top: size.height * 0.05,
             left: size.width * 0.025,
-            child: Row(
+            child: const Row(
               children: [
                 ScoreWidget(),
               ],
             ),
           ),
           Positioned(
-            bottom: 0,
-            left: -size.width * 0.15,
+            bottom: -size.height * 0.08,
+            left: -size.width * 0.18,
             child: Image.asset(
               'assets/images/chest.png',
               width: size.width * 0.6,
@@ -46,7 +46,7 @@ class _MenuScreenState extends State {
             ),
           ),
           Positioned(
-            bottom: 0,
+            bottom: -size.height * 0.17,
             right: -size.width * 0.27,
             child: Image.asset(
               'assets/images/bison_half.png',

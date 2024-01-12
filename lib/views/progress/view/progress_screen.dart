@@ -21,13 +21,12 @@ class _ProgressScreenState extends State<ProgressScreen> {
       case 0:
         Navigator.of(context).pushNamed(AppRoutes.lvl1);
         score -= 50;
-        life -= 1;
+
         break;
 
       case 1:
         Navigator.of(context).pushNamed(AppRoutes.lvl2);
         score -= 50;
-        life -= 1;
 
         break;
       case 2:
@@ -35,6 +34,7 @@ class _ProgressScreenState extends State<ProgressScreen> {
           const SnackBar(
             content: Text(
               'This level isn\'t unlocked yet',
+              textAlign: TextAlign.center,
               style: TextStyle(color: Colors.white),
             ),
             backgroundColor: Colors.deepOrange,

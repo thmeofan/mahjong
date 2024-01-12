@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../util/app_routes.dart';
 import '../../app/view/my_in_app_web_view.dart';
 import '../../app/widget/navigation_button.dart';
-import '../../consts/app_colors.dart';
+
 import '../../consts/app_text_style/settings_style.dart';
 
 class SettingsScreen extends StatelessWidget {

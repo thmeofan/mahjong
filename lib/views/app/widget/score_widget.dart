@@ -22,7 +22,7 @@ class ScoreWidget extends StatelessWidget {
           Text(
             score.toString(),
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
           ),
         ],
       ),

@@ -25,7 +25,7 @@ class ResultScreen extends StatelessWidget {
           ),
           Positioned(
             bottom: -size.height * 0.15,
-            left: -size.width * 0.15,
+            left: -size.width * 0.25,
             child: Image.asset(
               'assets/images/bison.png',
               height: size.height * 0.9,
@@ -34,7 +34,7 @@ class ResultScreen extends StatelessWidget {
           ),
           Positioned(
             bottom: 0,
-            right: -size.width * 0.15,
+            right: -size.width * 0.2,
             child: Image.asset(
               'assets/images/buddha.png',
               height: size.height * 0.8,
@@ -56,18 +56,19 @@ class ResultScreen extends StatelessWidget {
                   ),
                   child: Padding(
                     padding: EdgeInsets.only(
-                      top: size.width * 0.1,
+                      top: size.width * 0.14,
                     ),
                     child: Column(
                       children: [
-                        Text(
+                        const Text(
                           'LEVEL DONE',
                           style: ResultTextStyle.resultTitle,
+                          textAlign: TextAlign.center,
                         ),
                         SizedBox(
                           height: size.height * 0.008,
                         ),
-                        Text('Congratulations on \npassing the level',
+                        const Text('Congratulations on \npassing the level',
                             style: ResultTextStyle.resultCongrats),
                         SizedBox(
                           height: size.height * 0.008,
@@ -79,6 +80,7 @@ class ResultScreen extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.symmetric(
                             horizontal: size.width * 0.15,
+                            vertical: size.height * 0.01,
                           ),
                           child: Row(
                             children: [
