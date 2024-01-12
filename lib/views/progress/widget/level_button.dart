@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class LevelButton extends StatelessWidget {
   const LevelButton({
@@ -31,7 +30,7 @@ class LevelButton extends StatelessWidget {
                   color: Colors.white.withOpacity(0.1),
                   spreadRadius: 1,
                   blurRadius: 5,
-                  offset: Offset(0, 3),
+                  offset: const Offset(0, 3),
                 ),
               ]
             : null,

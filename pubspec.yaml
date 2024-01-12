@@ -27,5 +27,5 @@ flutter:
     - assets/images/cards/
     - assets/images/levels/
     - assets/images/
-    - assets/images/levels/lvl001.svg
+
   uses-material-design: true

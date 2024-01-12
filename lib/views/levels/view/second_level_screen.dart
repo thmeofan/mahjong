@@ -50,7 +50,6 @@ class _SecondLevelScreenState extends State<SecondLevelScreen> {
       _cardSelected = List<bool>.filled(_gameIcons.length, false);
       _cardMatched = List<bool>.filled(_gameIcons.length, false);
       _previousIndex = -1;
-      print(_gameIcons);
     });
   }
 
@@ -153,11 +152,11 @@ class _SecondLevelScreenState extends State<SecondLevelScreen> {
               SizedBox(
                 width: size.width * 0.08,
               ),
-              TimerWidget(),
+              const TimerWidget(),
               SizedBox(
                 width: size.width * 0.05,
               ),
-              ScoreWidget(),
+              const ScoreWidget(),
             ],
           ),
         ),
@@ -189,7 +188,7 @@ class _SecondLevelScreenState extends State<SecondLevelScreen> {
       } else {
         _isChecking = true;
 
-        Future.delayed(Duration(seconds: 1), () {
+        Future.delayed(const Duration(seconds: 1), () {
           setState(() {
             _cardSelected[_previousIndex] = false;
             _cardSelected[index] = false;

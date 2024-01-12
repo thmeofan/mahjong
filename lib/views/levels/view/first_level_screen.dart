@@ -50,7 +50,6 @@ class _FirstLevelScreenState extends State<FirstLevelScreen> {
       _cardSelected = List<bool>.filled(_gameIcons.length, false);
       _cardMatched = List<bool>.filled(_gameIcons.length, false);
       _previousIndex = -1;
-      print(_gameIcons);
     });
   }
 
@@ -149,11 +148,11 @@ class _FirstLevelScreenState extends State<FirstLevelScreen> {
               SizedBox(
                 width: size.width * 0.08,
               ),
-              TimerWidget(),
+              const TimerWidget(),
               SizedBox(
                 width: size.width * 0.05,
               ),
-              ScoreWidget(),
+              const ScoreWidget(),
             ],
           ),
         ),
@@ -185,7 +184,7 @@ class _FirstLevelScreenState extends State<FirstLevelScreen> {
       } else {
         _isChecking = true;
 
-        Future.delayed(Duration(seconds: 1), () {
+        Future.delayed(const Duration(seconds: 1), () {
           setState(() {
             _cardSelected[_previousIndex] = false;
             _cardSelected[index] = false;

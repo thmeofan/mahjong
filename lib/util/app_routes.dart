@@ -37,7 +37,7 @@ abstract class AppRoutes {
       case progress:
         child = const ProgressScreen();
       default:
-        child = SplashScreen(
+        child = const SplashScreen(
           homeRoute: AppRoutes.home,
         );
     }
